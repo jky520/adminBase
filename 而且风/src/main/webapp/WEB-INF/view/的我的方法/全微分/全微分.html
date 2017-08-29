@@ -1,0 +1,38 @@
+@layout("/common/_container.html"){
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>得到管理</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <#NameCon id="condition" name="名称" />
+                            </div>
+                            <div class="col-sm-3">
+                                <#button name="搜索" icon="fa-search" clickFun="全微分.search()"/>
+                            </div>
+                        </div>
+                        <div class="hidden-xs" id="全微分TableToolbar" role="group">
+                            @if(shiro.hasPermission("/全微分/add")){
+                                <#button name="添加" icon="fa-plus" clickFun="全微分.openAdd全微分()"/>
+                            @}
+                            @if(shiro.hasPermission("/全微分/update")){
+                                <#button name="修改" icon="fa-plus" clickFun="全微分.open全微分Detail()" space="true"/>
+                            @}
+                            @if(shiro.hasPermission("/全微分/delete")){
+                                <#button name="删除" icon="fa-plus" clickFun="全微分.delete()" space="true"/>
+                            @}
+                        </div>
+                        <#table id="全微分Table"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/的我的方法/全微分/全微分.js"></script>
+@}
